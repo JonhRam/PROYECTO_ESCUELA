@@ -1,7 +1,7 @@
 <div class="full-box cover containerLogin">
 	<form action="" method="POST" autocomplete="off" class="full-box logInForm">
 		<figure class="full-box">
-			<img src="<?php echo SERVERURL; ?>views/assets/img/logoescu.png" alt="<?php echo COMPANY; ?>" class="img-responsive" style="max-width: 100px; display: block; margin: 0 auto;">
+			<img src="<?php echo SERVERURL; ?>views/assets/img/loginfon.png" alt="<?php echo COMPANY; ?>" class="img-responsive" style="max-width: 100px; display: block; margin: 0 auto;">
 		</figure>
 		<p class="text-center text-muted text-uppercase"><?php echo COMPANY; ?></p>
 		<div class="form-group label-floating">

@@ -1,4 +1,4 @@
-<?php if($_SESSION['userType']=="Administrador"): ?>
+<?php if($_SESSION['userType']=="Administrador" || $_SESSION['userType']=="Estiudiante "): ?>
 <div class="container-fluid">
 	<div class="page-header">
 	  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Usuarios <small>(Administradores)</small></h1>

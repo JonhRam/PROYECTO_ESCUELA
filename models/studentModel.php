@@ -9,11 +9,12 @@
 
 		/*----------  Add Student Model  ----------*/
 		public function add_student_model($data){
-			$query=self::connect()->prepare("INSERT INTO estudiante(Codigo,Nombres,Apellidos,Email) VALUES(:Codigo,:Nombres,:Apellidos,:Email)");
+			$query=self::connect()->prepare("INSERT INTO cuenta(Codigo,Nombres,Apellidos,Email) VALUES(:Codigo,:Nombres,:Apellidos,:Email)");
 			$query->bindParam(":Codigo",$data['Codigo']);
 			$query->bindParam(":Nombres",$data['Nombres']);
 			$query->bindParam(":Apellidos",$data['Apellidos']);
 			$query->bindParam(":Email",$data['Email']);
+			$query->bindParam(":contrasena",$data['2024.']);
 			$query->execute();
 			return $query;
 		}

@@ -5,65 +5,65 @@
 <!-- Menú sin imagen con botones celestes -->
 <div class="full-box" style="margin-bottom: 20px;">
     <div class="menu-grid">
-        <a href="<?php echo SERVERURL; ?>abecedario.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/letras.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/abc.jpg" alt="Abecedario">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/Abecedario.png" alt="Abecedario">
                 <h3>ABECEDARIO</h3>
             </div>
         </a>
 		
-        <a href="<?php echo SERVERURL; ?>views/animales.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/animales.php">
    			 <div class="menu-item">
-       			 <img src="<?php echo SERVERURL; ?>views/assets/icons/img/animals.jpg" alt="Animales">
+       			 <img src="<?php echo SERVERURL; ?>views/assets/img/animales.png"" alt="Animales">
         		<h3>ANIMALES</h3>
     		</div>
 		</a>
 
         <a href="<?php echo SERVERURL; ?>colores.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/colors.png" alt="Colores">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/colores.png"" alt="Colores">
                 <h3>COLORES</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>comida.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/food.png" alt="Comida">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/comida.png" alt="Comida">
                 <h3>COMIDA</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>dias_semana.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/days.png" alt="Días de la Semana">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/semana.png" alt="Días de la Semana">
                 <h3>DÍAS DE LA SEMANA</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>meses_ano.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/months.png" alt="Meses del Año">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/meses.png" alt="Meses del Año">
                 <h3>MESES DEL AÑO</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>personas.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/people.png" alt="Personas">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/personas.png" alt="Personas">
                 <h3>PERSONAS</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>preguntas.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/questions.png" alt="Preguntas">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/preguntas.png" alt="Preguntas">
                 <h3>PREGUNTAS</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>pronombres.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/pronouns.png" alt="Pronombres">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/ellos.png" alt="Pronombres">
                 <h3>PRONOMBRES</h3>
             </div>
         </a>
         <a href="<?php echo SERVERURL; ?>saludos_cordiales.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/icons/img/greetings.png" alt="Saludos Cordiales">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/saludos.png" alt="Saludos Cordiales">
                 <h3>SALUDOS CORDIALES</h3>
             </div>
         </a>
