@@ -12,56 +12,45 @@
             </div>
         </a>
 		
-        <a href="<?php echo SERVERURL; ?>views/contents/animales.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/numeros.php">
    			 <div class="menu-item">
-       			 <img src="<?php echo SERVERURL; ?>views/assets/img/animales.png"" alt="Animales">
-        		<h3>ANIMALES</h3>
+       			 <img src="<?php echo SERVERURL; ?>views/assets/img/numeros.png"" alt="numeros">
+        		<h3>NUMEROS</h3>
     		</div>
 		</a>
 
-        <a href="<?php echo SERVERURL; ?>colores.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/colores.php">
             <div class="menu-item">
                 <img src="<?php echo SERVERURL; ?>views/assets/img/colores.png"" alt="Colores">
                 <h3>COLORES</h3>
             </div>
         </a>
-        <a href="<?php echo SERVERURL; ?>comida.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/frutas.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/img/comida.png" alt="Comida">
-                <h3>COMIDA</h3>
+                <img src="<?php echo SERVERURL; ?>views/assets/img/frutas.png" alt="frutas">
+                <h3>FRUTAS</h3>
             </div>
         </a>
-        <a href="<?php echo SERVERURL; ?>dias_semana.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/verduras.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/img/semana.png" alt="Días de la Semana">
-                <h3>DÍAS DE LA SEMANA</h3>
+                <img src="<?php echo SERVERURL; ?>views/assets/img/verdura.png" alt="verduras">
+                <h3>VERDURAS</h3>
             </div>
         </a>
-        <a href="<?php echo SERVERURL; ?>meses_ano.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/meses.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/img/meses.png" alt="Meses del Año">
+                <img src="<?php echo SERVERURL; ?>views/assets/img/mesesdelaño.png" alt="Meses del Año">
                 <h3>MESES DEL AÑO</h3>
             </div>
         </a>
-        <a href="<?php echo SERVERURL; ?>personas.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/nombres.php">
             <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/img/personas.png" alt="Personas">
-                <h3>PERSONAS</h3>
+                <img src="<?php echo SERVERURL; ?>views/assets/img/nombre.png" alt="nombres">
+                <h3>NOMBRES</h3>
             </div>
         </a>
-        <a href="<?php echo SERVERURL; ?>preguntas.php">
-            <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/img/preguntas.png" alt="Preguntas">
-                <h3>PREGUNTAS</h3>
-            </div>
-        </a>
-        <a href="<?php echo SERVERURL; ?>pronombres.php">
-            <div class="menu-item">
-                <img src="<?php echo SERVERURL; ?>views/assets/img/ellos.png" alt="Pronombres">
-                <h3>PRONOMBRES</h3>
-            </div>
-        </a>
-        <a href="<?php echo SERVERURL; ?>saludos_cordiales.php">
+        
+        <a href="<?php echo SERVERURL; ?>views/contents/saludos.php">
             <div class="menu-item">
                 <img src="<?php echo SERVERURL; ?>views/assets/img/saludos.png" alt="Saludos Cordiales">
                 <h3>SALUDOS CORDIALES</h3>
