@@ -76,14 +76,10 @@
 					<i class="zmdi zmdi-videocam zmdi-hc-fw"></i> Clases <i class="zmdi zmdi-caret-down pull-right"></i>
 				</a>
 				<ul class="list-unstyled full-box">
-					<li>
-						<a href="<?php echo SERVERURL; ?>class/">
-							<i class="zmdi zmdi-tv-alt-play zmdi-hc-fw"></i> Nueva
-						</a>
-					</li>
+
 					<li>
 						<a href="<?php echo SERVERURL; ?>classlist/">
-							<i class="zmdi zmdi-tv-list zmdi-hc-fw"></i> Listado
+							<i class="zmdi zmdi-tv-list zmdi-hc-fw"></i> REPORTES
 						</a>
 					</li>
 				</ul>

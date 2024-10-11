@@ -1,53 +1,173 @@
-<?php if($_SESSION['userType']=="Administrador"): ?>
-<div class="container-fluid">
-	<div class="page-header">
-	  <h1 class="text-titles"><i class="zmdi zmdi-tv-list zmdi-hc-fw"></i> Clases <small>(Listado)</small></h1>
-	</div>
-	<p class="lead">
-		En esta sección puede ver el listado de todas las clases registradas en el sistema, puede actualizar datos o eliminar una clase cuando lo desee.
-	</p>
-</div>
-<div class="container-fluid">
-	<ul class="breadcrumb breadcrumb-tabs">
-	  	<li class="active">
-		  	<a href="<?php echo SERVERURL; ?>class/" class="btn btn-info">
-		  		<i class="zmdi zmdi-plus"></i> Nueva
-		  	</a>
-	  	</li>
-	  	<li>
-	  		<a href="<?php echo SERVERURL; ?>classlist/" class="btn btn-success">
-	  			<i class="zmdi zmdi-format-list-bulleted"></i> Lista
-	  		</a>
-	  	</li>
-	</ul>
-</div>
-<?php 
-	require_once "./controllers/videoController.php";
+<?php if ($_SESSION['userType'] == "Administrador"):
 
-	$insVideo = new videoController();
+	$resultados = [];
+	try {
+		$host = 'localhost';       // O la dirección IP del servidor MySQL
+		$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
+		$user = 'root';         // Reemplaza con tu usuario de MySQL
+		$pass = '';      // Reemplaza con tu contraseña de MySQL
+		$charset = 'utf8mb4';      // Codificación (opcional)
+		$estu = $_SESSION['userName'];
+		$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+
+		$pdo = new PDO($dsn, $user, $pass);
+
+		// importarnte agragar a los demas
+		date_default_timezone_set('America/Guatemala');
+
+
+		// Verificar si el formulario fue enviado
+		if (isset($_POST['submit'])) {
+			// Verificar si el campo "final" existe y no está vacío
+			if (!empty($_POST['report'])) {
+
+
+
+				// entro a abeedario
+				// consula abecedario
+				// like  = %abecedario inicio 
+				// like  = abecedario% final
+
+				$consulta_none = "SELECT * FROM registro WHERE accion LIKE '%$_POST[report]%' ";
+				$stmt = $pdo->prepare($consulta_none);
+
+				$stmt->execute();
+				$resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			}
+		}
+	} catch (\Throwable $th) {
+		//throw $th;
+	}
+
+
+
 ?>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="panel panel-success">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title"><i class="zmdi zmdi-format-list-bulleted"></i> Lista de clases</h3>
-			  	</div>
-			  	<div class="panel-body">
-					<div class="table-responsive">
-						<?php
-							$page=explode("/", $_GET['views']);
-							echo $insVideo->pagination_video_controller($page[1],10);
-						?>
+
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="<?php echo SERVERURL; ?>">Inicio</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Reportes</li>
+		</ol>
+	</nav>
+
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="card-body">
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+											Listado de reportes
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<form action="" method="post">
+
+											<div class="form-group">
+												<label for="exampleFormControlSelect1">Tipo de reporte</label>
+												<select class="form-control" id="exampleFormControlSelect1" name="report" required>
+													<option value=""> Seleccione su tipo de reporte </option>
+													<option value="Abecedario">Letras</option>
+													<option value="numeros">Numeros</option>
+													<option value="colores">Colores</option>
+													<option value="frutas">Frutas</option>
+													<option value="verduras">Verduras</option>
+													<option value="meses">Meses</option>
+													<option value="nombres">Nombres</option>
+													<option value="saludos">Saludos</option>
+												</select>
+											</div>
+
+											<button type="submit" class="btn btn-primary" name="submit">VER REPORTES</button>
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
-			  	</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+
+				<div class="card">
+					<div class="card-header">
+						Listado Estudiante con Tareas Ralizadas
+					</div>
+					<div class="card-body">
+
+						<div class="table-responsive">
+							<div class="text-right mb-3">
+								<button type="button" class="btn btn-primary" onclick="printTable()">
+									<i class="zmdi zmdi-print"></i> Imprimir
+								</button>
+							</div>
+							<table class="table table-hover" id="tablePrint">
+								<thead>
+									<tr>
+										<th>Estudiante</th>
+										<th>Acci&oacute;n</th>
+										<th>Fecha y hora</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($resultados as $row) : ?>
+										<tr>
+											<td><?php echo $row['estudiante']; ?></td>
+											<td><?php echo $row['accion']; ?></td>
+											<td><?php echo $row['created_at']; ?></td>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+
+
+
+
+
+
+						</div>
+
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
-</div>
-<?php 
-	else:
-		$logout2 = new loginController();
-        echo $logout2->login_session_force_destroy_controller(); 
-	endif;
+
+
+
+	<script>
+		function printTable() {
+			var divContents = document.getElementById("tablePrint").innerHTML;
+			var a = window.open('', '', 'height=500, width=500');
+			a.document.write('<html>');
+			a.document.write('<body ><table border="1" class="table table-hover"><tbody>');
+			a.document.write(divContents);
+			a.document.write('</tbody></table></body></html>');
+			a.document.close();
+			a.print();
+		}
+	</script>
+
+
+
+<?php
+else:
+	$logout2 = new loginController();
+	echo $logout2->login_session_force_destroy_controller();
+endif;
 ?>

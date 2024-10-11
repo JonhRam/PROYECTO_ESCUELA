@@ -7,24 +7,26 @@ $pass = '';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
-
+$estu = $_SESSION['userName'];
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$accion = 'Abecedario';
+
+// importarnte agragar a los demas
+date_default_timezone_set('America/Guatemala');
 
 try {
   $pdo = new PDO($dsn, $user, $pass);
-
   $hoy = date('Y-m-d h:i:s');
 
-  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
-
-  $stmp = $pdo->prepare($sql);
-
-  $stmp->execute([
-    ':estudiante' => $_SESSION['userName'],
-    ':accion' => 'Entro a Abecedario',
-    ':created_at' => $hoy,
-  ]);
-
+  // Verificar si el usuario si ya tiene el registro
+  $hoy1 = date('Y-m-d');
+  $consulta_none = "SELECT * FROM registro WHERE estudiante = :estudiante AND accion = 'Entro a $accion' AND DATE(created_at) = :created_at";
+  $stmt = $pdo->prepare($consulta_none);
+  $stmt->bindParam(':estudiante', $estu, PDO::PARAM_INT);
+  $stmt->bindParam(':created_at', $hoy1, PDO::PARAM_STR);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Verificar si el formulario fue enviado
   if (isset($_POST['submit'])) {
@@ -36,7 +38,7 @@ try {
 
       $stmp->execute([
         ':estudiante' => $_SESSION['userName'],
-        ':accion' => 'finalizo el Abecedario',
+        ':accion' => "finalizo el $accion",
         ':created_at' => $hoy,
       ]);
 
@@ -48,6 +50,19 @@ try {
 
     }
   }
+
+  if (count($resultados) > 0) {
+    header('Location: http://localhost/PROYECTO_ESCUELA/dashboard');
+    exit();
+  }
+
+  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+  $stmp = $pdo->prepare($sql);
+  $stmp->execute([
+    ':estudiante' => $_SESSION['userName'],
+    ':accion' => "Entro a $accion",
+    ':created_at' => $hoy,
+  ]);
 } catch (\PDOException $e) {
   throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
@@ -164,8 +179,8 @@ try {
     </div>
     <div class="image-pair">
       <div class="title">Letra B</div>
-      <img src="../assets/img/abecedario/b.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/b.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra C</div>
@@ -190,27 +205,27 @@ try {
     <div class="image-pair">
       <div class="title">Letra G</div>
       <img src="../assets/img/abecedario/g.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra H</div>
-      <img src="../assets/img/abecedario/h.png"" alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/h.png"" alt=" Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra I</div>
       <img src="../assets/img/abecedario/i.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra J</div>
-      <img src="../assets/img/abecedario/j.png"alt="Image B">
+      <img src="../assets/img/abecedario/j.png" alt="Image B">
       <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra K</div>
-      <img src="../assets/img/abecedario/k.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/k.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra L</div>
@@ -219,43 +234,43 @@ try {
     </div>
     <div class="image-pair">
       <div class="title">Letra M</div>
-      <img src="../assets/img/abecedario/m.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/m.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra N</div>
-      <img src="../assets/img/abecedario/n.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/n.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Ñ</div>
       <img src="../assets/img/abecedario/ñ.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra O</div>
-      <img src="../assets/img/abecedario/o.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/o.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra P</div>
-      <img src="../assets/img/abecedario/p.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/p.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Q</div>
       <img src="../assets/img/abecedario/q.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra R</div>
-      <img src="../assets/img/abecedario/r.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/r.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra S</div>
-      <img src="../assets/img/abecedario/s.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/s.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra T</div>
@@ -269,23 +284,23 @@ try {
     </div>
     <div class="image-pair">
       <div class="title">Letra V</div>
-      <img src="../assets/img/abecedario/v.png"alt="Image B">
+      <img src="../assets/img/abecedario/v.png" alt="Image B">
       <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra W</div>
-      <img src="../assets/img/abecedario/w.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/w.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Z</div>
       <img src="../assets/img/abecedario/x.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Y</div>
-      <img src="../assets/img/abecedario/y.png"alt="Image B">
-      <img src="../assets/img/abecedario/.png"alt="Image C">
+      <img src="../assets/img/abecedario/y.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Z</div>
