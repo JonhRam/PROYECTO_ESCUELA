@@ -8,7 +8,7 @@
 		<!-- SideBar User info -->
 		<div class="full-box dashboard-sideBar-UserInfo">
 			<figure class="full-box">
-				<img src="<?php echo SERVERURL; ?>views/assets/img/logo.png" alt="UserIcon">
+				<img src="<?php echo SERVERURL; ?>views/assets/img/estudiante.png" alt="UserIcon">
 				<figcaption class="text-center text-titles"><?php echo $_SESSION['userName']; ?></figcaption>
 			</figure>
 			<ul class="full-box list-unstyled text-center">
@@ -102,6 +102,11 @@
 			<li>
 				<a href="<?php echo SERVERURL; ?>videolist/">
 					<i class="zmdi zmdi-tv-list zmdi-hc-fw"></i> Listado de clases
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo SERVERURL; ?>videolist/">
+					<i class="zmdi zmdi-tv-list zmdi-hc-fw"></i> Progreso de lecciones
 				</a>
 			</li>
 			<?php endif; ?>

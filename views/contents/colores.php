@@ -1,3 +1,58 @@
+<?php
+
+$host = 'localhost';       // O la dirección IP del servidor MySQL
+$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
+$user = 'root';         // Reemplaza con tu usuario de MySQL
+$pass = '';      // Reemplaza con tu contraseña de MySQL
+$charset = 'utf8mb4';      // Codificación (opcional)
+
+session_start();
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+try {
+  $pdo = new PDO($dsn, $user, $pass);
+
+  $hoy = date('Y-m-d h:i:s');
+
+  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+
+  $stmp = $pdo->prepare($sql);
+
+  $stmp->execute([
+    ':estudiante' => $_SESSION['userName'],
+    ':accion' => 'Entro a colores',
+    ':created_at' => $hoy,
+  ]);
+
+
+  // Verificar si el formulario fue enviado
+  if (isset($_POST['submit'])) {
+    // Verificar si el campo "final" existe y no está vacío
+    if (!empty($_POST['final'])) {
+      $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+
+      $stmp = $pdo->prepare($sql);
+
+      $stmp->execute([
+        ':estudiante' => $_SESSION['userName'],
+        ':accion' => 'finalizo los colores',
+        ':created_at' => $hoy,
+      ]);
+
+      // Redirigir a otra página después del procesamiento exitoso
+      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
+      header("Location: $http");
+      exit(); // Importante: detener la ejecución después de redirigir
+
+    }
+  }
+} catch (\PDOException $e) {
+  throw new \PDOException($e->getMessage(), (int)$e->getCode());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,7 +188,17 @@
       <img src="../assets/img/colores/.png" alt="Image B">
       <img src="../assets/img/colores/" alt="Image C">
     </div>
+
+    <div class="image-pair">
+      <div class="title">FELICIDADES LECCION COMPLETADA</div>
+      <form action="" method="POST">
+        <input type="hidden" id="final" name="final" value="123" required><br><br>
+
+        <button type="submit" name="submit">GUARDAR</button>
+      </form>
+    </div>
   </div>
+
 
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>

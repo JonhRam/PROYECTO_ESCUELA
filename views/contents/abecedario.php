@@ -21,7 +21,7 @@ try {
 
   $stmp->execute([
     ':estudiante' => $_SESSION['userName'],
-    ':accion' => 'Entro a Numeros',
+    ':accion' => 'Entro a Abecedario',
     ':created_at' => $hoy,
   ]);
 
@@ -36,7 +36,7 @@ try {
 
       $stmp->execute([
         ':estudiante' => $_SESSION['userName'],
-        ':accion' => 'finalizo en numeros',
+        ':accion' => 'finalizo el Abecedario',
         ':created_at' => $hoy,
       ]);
 
@@ -51,7 +51,9 @@ try {
 } catch (\PDOException $e) {
   throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -156,135 +158,148 @@ try {
 <body>
   <div class="gallery-container">
     <div class="image-pair active">
-      <div class="title">Numero 1</div>
-      <img src="../assets/img/numeros/1.png" class="d-block w-100" alt="...">
-      <img src="../assets/img/numeros/.png" class="d-block w-100" alt="...">
+      <div class="title">Letra A</div>
+      <img src="../assets/img/abecedario/a.png" class="d-block w-100" alt="...">
+      <img src="../assets/img/abecedario/.png" class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 2</div>
-      <img src="../assets/img/numeros/2.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra B</div>
+      <img src="../assets/img/abecedario/b.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 3</div>
-      <img src="../assets/img/numeros/3.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra C</div>
+      <img src="../assets/img/abecedario/c,.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 4</div>
-      <img src="../assets/img/numeros/4.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra D</div>
+      <img src="../assets/img/abecedario/d.jpg" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 5</div>
-      <img src="../assets/img/numeros/5.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra E</div>
+      <img src="../assets/img/abecedario/e.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 6</div>
-      <img src="../assets/img/numeros/6.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra F</div>
+      <img src="../assets/img/abecedario/f.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 7</div>
-      <img src="../assets/img/numeros/7.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra G</div>
+      <img src="../assets/img/abecedario/g.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 8</div>
-      <img src="../assets/img/numeros/8.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra H</div>
+      <img src="../assets/img/abecedario/h.png"" alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 9</div>
-      <img src="../assets/img/numeros/9.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra I</div>
+      <img src="../assets/img/abecedario/i.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 10</div>
-      <img src="../assets/img/numeros/10.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra J</div>
+      <img src="../assets/img/abecedario/j.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 11</div>
-      <img src="../assets/img/numeros/11.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra K</div>
+      <img src="../assets/img/abecedario/k.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 12</div>
-      <img src="../assets/img/numeros/12.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra L</div>
+      <img src="../assets/img/abecedario/l.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 13</div>
-      <img src="../assets/img/numeros/13.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra M</div>
+      <img src="../assets/img/abecedario/m.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 14</div>
-      <img src="../assets/img/numeros/14.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra N</div>
+      <img src="../assets/img/abecedario/n.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 15</div>
-      <img src="../assets/img/numeros/15.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra Ñ</div>
+      <img src="../assets/img/abecedario/ñ.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 16</div>
-      <img src="../assets/img/numeros/16.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra O</div>
+      <img src="../assets/img/abecedario/o.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 17</div>
-      <img src="../assets/img/numeros/17.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra P</div>
+      <img src="../assets/img/abecedario/p.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 18</div>
-      <img src="../assets/img/numeros/18.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra Q</div>
+      <img src="../assets/img/abecedario/q.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 19</div>
-      <img src="../assets/img/numeros/19.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra R</div>
+      <img src="../assets/img/abecedario/r.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 20</div>
-      <img src="../assets/img/numeros/20.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra S</div>
+      <img src="../assets/img/abecedario/s.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 21</div>
-      <img src="../assets/img/numeros/21.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra T</div>
+      <img src="../assets/img/abecedario/t.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 22</div>
-      <img src="../assets/img/numeros/22.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra U</div>
+      <img src="../assets/img/abecedario/u.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 23</div>
-      <img src="../assets/img/numeros/23.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra V</div>
+      <img src="../assets/img/abecedario/v.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 24</div>
-      <img src="../assets/img/numeros/24.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra W</div>
+      <img src="../assets/img/abecedario/w.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
     </div>
     <div class="image-pair">
-      <div class="title">Numero 25</div>
-      <img src="../assets/img/numeros/25.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <div class="title">Letra Z</div>
+      <img src="../assets/img/abecedario/x.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
+    </div>
+    <div class="image-pair">
+      <div class="title">Letra Y</div>
+      <img src="../assets/img/abecedario/y.png"alt="Image B">
+      <img src="../assets/img/abecedario/.png"alt="Image C">
+    </div>
+    <div class="image-pair">
+      <div class="title">Letra Z</div>
+      <img src="../assets/img/abecedario/z.png" alt="Image B">
+      <img src="../assets/img/abecedario/.png" alt="Image C">
+
     </div>
 
+
+
     <div class="image-pair">
-      <div class="title">FELICIDADES LECCION COMPLETADA 25/25</div>
+      <div class="title">FELICIDADES COMPLETO LA LECCION</div>
       <form action="" method="POST">
-        <input type="hidden" id="final" name="final" value="123" required><br><br>
+        <input type="hidden" id="final" name="final" value="456" required><br><br>
 
         <button type="submit" name="submit">GUARDAR</button>
       </form>

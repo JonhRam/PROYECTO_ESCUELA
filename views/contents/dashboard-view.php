@@ -1,11 +1,11 @@
 <div class="page-header">
-    <h1 class="text-titles"><i class="zmdi zmdi-store zmdi-hc-fw"></i> Bienvenido a <small><?php echo COMPANY; ?></small></h1>
+    <h1 class="text-titles"><i class="zmdi zmdi-store zmdi-hc-fw"></i> BIENVENIDO A LA <small><?php echo COMPANY; ?></small></h1>
 </div>
 
 <!-- Menú sin imagen con botones celestes -->
 <div class="full-box" style="margin-bottom: 20px;">
     <div class="menu-grid">
-        <a href="<?php echo SERVERURL; ?>views/contents/letras.php">
+        <a href="<?php echo SERVERURL; ?>views/contents/abecedario.php">
             <div class="menu-item">
                 <img src="<?php echo SERVERURL; ?>views/assets/img/Abecedario.png" alt="Abecedario">
                 <h3>ABECEDARIO</h3>
