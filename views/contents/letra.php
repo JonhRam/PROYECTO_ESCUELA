@@ -96,7 +96,7 @@
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>

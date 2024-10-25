@@ -1,30 +1,32 @@
 <?php
 
 $host = 'localhost';       // O la dirección IP del servidor MySQL
-$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-$user = 'root';         // Reemplaza con tu usuario de MySQL
-$pass = '';      // Reemplaza con tu contraseña de MySQL
+$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
-
+$estu = $_SESSION['userName'];
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$accion = 'Meses';
+
+// importarnte agragar a los demas
+date_default_timezone_set('America/Guatemala');
 
 try {
   $pdo = new PDO($dsn, $user, $pass);
-
   $hoy = date('Y-m-d h:i:s');
 
-  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
-
-  $stmp = $pdo->prepare($sql);
-
-  $stmp->execute([
-    ':estudiante' => $_SESSION['userName'],
-    ':accion' => 'Entro a meses',
-    ':created_at' => $hoy,
-  ]);
-
+  // Verificar si el usuario si ya tiene el registro
+  $hoy1 = date('Y-m-d');
+  $consulta_none = "SELECT * FROM registro WHERE estudiante = :estudiante AND accion = 'Entro a $accion' AND DATE(created_at) = :created_at";
+  $stmt = $pdo->prepare($consulta_none);
+  $stmt->bindParam(':estudiante', $estu, PDO::PARAM_INT);
+  $stmt->bindParam(':created_at', $hoy1, PDO::PARAM_STR);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Verificar si el formulario fue enviado
   if (isset($_POST['submit'])) {
@@ -36,21 +38,35 @@ try {
 
       $stmp->execute([
         ':estudiante' => $_SESSION['userName'],
-        ':accion' => 'finalizo meses',
+        ':accion' => "finalizo el $accion",
         ':created_at' => $hoy,
       ]);
 
       // Redirigir a otra página después del procesamiento exitoso
-      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      $http = "https://en-senas.com/dashboard";
       // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
       header("Location: $http");
       exit(); // Importante: detener la ejecución después de redirigir
 
     }
   }
+
+  if (count($resultados) > 0) {
+    header('Location: https://en-senas.com/dashboard');
+    exit();
+  }
+
+  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+  $stmp = $pdo->prepare($sql);
+  $stmp->execute([
+    ':estudiante' => $_SESSION['userName'],
+    ':accion' => "Entro a $accion",
+    ':created_at' => $hoy,
+  ]);
 } catch (\PDOException $e) {
   throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,62 +166,62 @@ try {
     <div class="image-pair active">
     <div class="title">enero</div>
      <img src="../assets/img/meses/enero.png" class="d-block w-100" alt="...">
-     <img src="../assets/img/meses/.png"class="d-block w-100" alt="...">
+     <img src="../assets/img/meses/eneros.png"class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
     <div class="title">febrero</div>
       <img src="../assets/img/meses/febr.png" alt="Image B">
-      <img src="../assets/img/meses/.png" alt="Image C">
+      <img src="../assets/img/meses/febreros.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">marzo</div>
       <img src="../assets/img/meses/marzo.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/marzos.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">abril</div>
       <img src="../assets/img/meses/abril.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/abrils.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">mayo</div>
       <img src="../assets/img/meses/mayo.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/mayos.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">junio</div>
       <img src="../assets/img/meses/junio.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/junios.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">julio</div>
       <img src="../assets/img/meses/julio.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/julios.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">agosto</div>
       <img src="../assets/img/meses/ag.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/agostosena.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">septiembre</div>
       <img src="../assets/img/meses/sep.png" alt="Image B">
-      <img src="../assets/img/meses/sep.png" alt="Image C">
+      <img src="../assets/img/meses/seps.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">octubre </div>
       <img src="../assets/img/meses/octu.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/octs.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">noviembre </div>
       <img src="../assets/img/meses/novi.png" alt="Image B">
-      <img src="../assets/img/meses/" alt="Image C">
+      <img src="../assets/img/meses/novis.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">diciembre </div>
       <img src="../assets/img/meses/dici.png" alt="Image B">
-      <img src="../assets/img/meses/dici.png" alt="Image C">
+      <img src="../assets/img/meses/dics.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">FELICIDADES LECCION COMPLETADA</div>
@@ -220,7 +236,7 @@ try {
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>

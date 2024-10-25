@@ -1,14 +1,13 @@
 <?php
 	/*===========================================
 	|  Datos del servidor - Data of the server  |
+	
 	===========================================*/
 	const SERVER="localhost";
 	const DB="sistemawebescuela";
 	const USER='root';
 	const PASS="";
 
-	
-	
 	const SGBD="mysql:host=".SERVER.";dbname=".DB;
 
 

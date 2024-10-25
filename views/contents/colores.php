@@ -1,30 +1,32 @@
 <?php
 
 $host = 'localhost';       // O la dirección IP del servidor MySQL
-$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-$user = 'root';         // Reemplaza con tu usuario de MySQL
-$pass = '';      // Reemplaza con tu contraseña de MySQL
+$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
-
+$estu = $_SESSION['userName'];
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$accion = 'colores';
+
+// importarnte agragar a los demas
+date_default_timezone_set('America/Guatemala');
 
 try {
   $pdo = new PDO($dsn, $user, $pass);
-
   $hoy = date('Y-m-d h:i:s');
 
-  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
-
-  $stmp = $pdo->prepare($sql);
-
-  $stmp->execute([
-    ':estudiante' => $_SESSION['userName'],
-    ':accion' => 'Entro a colores',
-    ':created_at' => $hoy,
-  ]);
-
+  // Verificar si el usuario si ya tiene el registro
+  $hoy1 = date('Y-m-d');
+  $consulta_none = "SELECT * FROM registro WHERE estudiante = :estudiante AND accion = 'Entro a $accion' AND DATE(created_at) = :created_at";
+  $stmt = $pdo->prepare($consulta_none);
+  $stmt->bindParam(':estudiante', $estu, PDO::PARAM_INT);
+  $stmt->bindParam(':created_at', $hoy1, PDO::PARAM_STR);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Verificar si el formulario fue enviado
   if (isset($_POST['submit'])) {
@@ -36,23 +38,36 @@ try {
 
       $stmp->execute([
         ':estudiante' => $_SESSION['userName'],
-        ':accion' => 'finalizo los colores',
+        ':accion' => "finalizo el $accion",
         ':created_at' => $hoy,
       ]);
 
       // Redirigir a otra página después del procesamiento exitoso
-      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      $http = "https://en-senas.com/dashboard";
       // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
       header("Location: $http");
       exit(); // Importante: detener la ejecución después de redirigir
 
     }
   }
+
+  if (count($resultados) > 0) {
+    header('Location: https://en-senas.com/dashboard');
+    exit();
+  }
+
+  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+  $stmp = $pdo->prepare($sql);
+  $stmp->execute([
+    ':estudiante' => $_SESSION['userName'],
+    ':accion' => "Entro a $accion",
+    ':created_at' => $hoy,
+  ]);
 } catch (\PDOException $e) {
   throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -151,42 +166,57 @@ try {
     <div class="image-pair active">
     <div class="title">color azul</div>
      <img src="../assets/img/colores/azul.png" class="d-block w-100" alt="...">
-     <img src="../assets/img/colores/.png"class="d-block w-100" alt="...">
+     <img src="../assets/img/colores/azulsena.png"class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
     <div class="title">color rojo</div>
       <img src="../assets/img/colores/rojo.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+      <img src="../assets/img/colores/rojosena.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">color negro</div>
       <img src="../assets/img/colores/negro.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+      <img src="../assets/img/colores/negrosena.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">color blanco</div>
       <img src="../assets/img/colores/blanco.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+      <img src="../assets/img/colores/blancosena.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">color amarillo</div>
       <img src="../assets/img/colores/amarilo.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+      <img src="../assets/img/colores/amarillosena.png" alt="Image C">
     </div>
     <div class="image-pair">
     <div class="title">color verde</div>
       <img src="../assets/img/colores/verde.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+      <img src="../assets/img/colores/verdesena.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">color blanco</div>
-      <img src="../assets/img/colores/blanco.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+    <div class="title">color rosado </div>
+      <img src="../assets/img/colores/rosado.png" alt="Image B">
+      <img src="../assets/img/colores/rosadosena.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">color </div>
-      <img src="../assets/img/colores/.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+    <div class="title">color morado </div>
+      <img src="../assets/img/colores/morado.png" alt="Image B">
+      <img src="../assets/img/colores/moradosena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">color gris </div>
+      <img src="../assets/img/colores/gris.png" alt="Image B">
+      <img src="../assets/img/colores/grissena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">color celeste </div>
+      <img src="../assets/img/colores/celeste.png" alt="Image B">
+      <img src="../assets/img/colores/celestesena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">color cafe</div>
+      <img src="../assets/img/colores/cafe.png" alt="Image B">
+      <img src="../assets/img/colores/cafesena.png" alt="Image C">
     </div>
 
     <div class="image-pair">
@@ -203,7 +233,7 @@ try {
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>

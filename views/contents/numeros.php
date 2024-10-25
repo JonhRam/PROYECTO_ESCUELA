@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';       // O la dirección IP del servidor MySQL
-$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-$user = 'root';         // Reemplaza con tu usuario de MySQL
-$pass = '';      // Reemplaza con tu contraseña de MySQL
+$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
@@ -43,7 +43,7 @@ try {
       ]);
 
       // Redirigir a otra página después del procesamiento exitoso
-      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      $http = "https://en-senas.com/dashboard";
       // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
       header("Location: $http");
       exit(); // Importante: detener la ejecución después de redirigir
@@ -52,7 +52,7 @@ try {
   }
 
   if (count($resultados) > 0) {
-    header('Location: http://localhost/PROYECTO_ESCUELA/dashboard');
+    header('Location: https://en-senas.com/dashboard');
     exit();
   }
 
@@ -175,127 +175,107 @@ try {
     <div class="image-pair active">
       <div class="title">Numero 1</div>
       <img src="../assets/img/numeros/1.png" class="d-block w-100" alt="...">
-      <img src="../assets/img/numeros/.png" class="d-block w-100" alt="...">
+      <img src="../assets/img/numeros/1se.png" class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
       <div class="title">Numero 2</div>
       <img src="../assets/img/numeros/2.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/2se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 3</div>
       <img src="../assets/img/numeros/3.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/3sena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 4</div>
       <img src="../assets/img/numeros/4.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/4se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 5</div>
       <img src="../assets/img/numeros/5.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/5se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 6</div>
       <img src="../assets/img/numeros/6.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/6se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 7</div>
       <img src="../assets/img/numeros/7.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/7se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 8</div>
       <img src="../assets/img/numeros/8.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/8se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 9</div>
       <img src="../assets/img/numeros/9.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/9se.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 10</div>
       <img src="../assets/img/numeros/10.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/10sena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 11</div>
       <img src="../assets/img/numeros/11.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/11s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 12</div>
       <img src="../assets/img/numeros/12.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/12s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 13</div>
       <img src="../assets/img/numeros/13.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/13s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 14</div>
       <img src="../assets/img/numeros/14.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/14s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 15</div>
       <img src="../assets/img/numeros/15.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/15s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 16</div>
       <img src="../assets/img/numeros/16.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/16s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 17</div>
       <img src="../assets/img/numeros/17.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/17s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 18</div>
       <img src="../assets/img/numeros/18.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/18s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 19</div>
       <img src="../assets/img/numeros/19.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/19s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 20</div>
       <img src="../assets/img/numeros/20.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
-    </div>
-    <div class="image-pair">
-      <div class="title">Numero 21</div>
-      <img src="../assets/img/numeros/21.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
-    </div>
-    <div class="image-pair">
-      <div class="title">Numero 22</div>
-      <img src="../assets/img/numeros/22.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
-    </div>
-    <div class="image-pair">
-      <div class="title">Numero 23</div>
-      <img src="../assets/img/numeros/23.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
-    </div>
-    <div class="image-pair">
-      <div class="title">Numero 24</div>
-      <img src="../assets/img/numeros/24.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/20s.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Numero 25</div>
       <img src="../assets/img/numeros/25.png" alt="Image B">
-      <img src="../assets/img/numeros/" alt="Image C">
+      <img src="../assets/img/numeros/25s.png" alt="Image C">
     </div>
 
     <div class="image-pair">
@@ -312,7 +292,7 @@ try {
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>

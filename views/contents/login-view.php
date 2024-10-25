@@ -6,12 +6,12 @@
 		<p class="text-center text-muted text-uppercase"><?php echo COMPANY; ?></p>
 		<div class="form-group label-floating">
 		  <label class="control-label" for="loginUserName">Nombre de usuario</label>
-		  <input class="form-control" id="loginUserName" type="text" name="loginUserName">
+		  <input class="form-control" id="loginUserName" type="text" name="loginUserName" value="Administrador">
 		  <p class="help-block">Escribe tú Usuario</p>
 		</div>
 		<div class="form-group label-floating">
 		  <label class="control-label" for="loginUserPass">Contraseña</label>
-		  <input class="form-control" id="loginUserPass" type="password" name="loginUserPass">
+		  <input class="form-control" id="loginUserPass" type="password" name="loginUserPass" value="Administrador"> 
 		  <p class="help-block">Escribe tú contraseña</p>
 		</div>
 		<div class="form-group text-center">

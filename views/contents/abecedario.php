@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';       // O la dirección IP del servidor MySQL
-$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-$user = 'root';         // Reemplaza con tu usuario de MySQL
-$pass = '';      // Reemplaza con tu contraseña de MySQL
+$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
@@ -43,7 +43,7 @@ try {
       ]);
 
       // Redirigir a otra página después del procesamiento exitoso
-      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      $http = "https://en-senas.com/dashboard";
       // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
       header("Location: $http");
       exit(); // Importante: detener la ejecución después de redirigir
@@ -52,7 +52,7 @@ try {
   }
 
   if (count($resultados) > 0) {
-    header('Location: http://localhost/PROYECTO_ESCUELA/dashboard');
+    header('Location: https://en-senas.com/dashboard');
     exit();
   }
 
@@ -175,137 +175,156 @@ try {
     <div class="image-pair active">
       <div class="title">Letra A</div>
       <img src="../assets/img/abecedario/a.png" class="d-block w-100" alt="...">
-      <img src="../assets/img/abecedario/.png" class="d-block w-100" alt="...">
+      <img src="../assets/img/abecedario/asena.png" class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
       <div class="title">Letra B</div>
       <img src="../assets/img/abecedario/b.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/bsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra C</div>
-      <img src="../assets/img/abecedario/c,.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/c.png" alt="Image B">
+      <img src="../assets/img/abecedario/csena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+      <div class="title">Letra CH</div>
+      <img src="../assets/img/abecedario/ch.png" alt="Image B">
+      <img src="../assets/img/abecedario/chsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra D</div>
-      <img src="../assets/img/abecedario/d.jpg" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/d.png" alt="Image B">
+      <img src="../assets/img/abecedario/dsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra E</div>
       <img src="../assets/img/abecedario/e.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/esena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra F</div>
       <img src="../assets/img/abecedario/f.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/fsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra G</div>
-      <img src="../assets/img/abecedario/g.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/g.png"" alt=" Image B">
+      <img src="../assets/img/abecedario/gsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra H</div>
-      <img src="../assets/img/abecedario/h.png"" alt=" Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/h.png" alt="Image B">
+      <img src="../assets/img/abecedario/hsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra I</div>
       <img src="../assets/img/abecedario/i.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/isena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra J</div>
       <img src="../assets/img/abecedario/j.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/jsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra K</div>
       <img src="../assets/img/abecedario/k.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/ksena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra L</div>
       <img src="../assets/img/abecedario/l.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/lsena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+      <div class="title">Letra LL</div>
+      <img src="../assets/img/abecedario/ll.png" alt="Image B">
+      <img src="../assets/img/abecedario/llsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra M</div>
       <img src="../assets/img/abecedario/m.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/msena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra N</div>
       <img src="../assets/img/abecedario/n.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/nsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Ñ</div>
       <img src="../assets/img/abecedario/ñ.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/ñsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra O</div>
       <img src="../assets/img/abecedario/o.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/osena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra P</div>
       <img src="../assets/img/abecedario/p.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/psena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra Q</div>
       <img src="../assets/img/abecedario/q.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/qsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra R</div>
       <img src="../assets/img/abecedario/r.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/rsena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+      <div class="title">Letra RR</div>
+      <img src="../assets/img/abecedario/rr.png" alt="Image B">
+      <img src="../assets/img/abecedario/rrsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra S</div>
       <img src="../assets/img/abecedario/s.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/ssena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra T</div>
       <img src="../assets/img/abecedario/t.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/tsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra U</div>
       <img src="../assets/img/abecedario/u.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/usena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra V</div>
       <img src="../assets/img/abecedario/v.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/vsena.png" alt="Image C">
     </div>
     <div class="image-pair">
       <div class="title">Letra W</div>
       <img src="../assets/img/abecedario/w.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/wsena.png" alt="Image C">
+
     </div>
     <div class="image-pair">
-      <div class="title">Letra Z</div>
+      <div class="title">Letra X</div>
       <img src="../assets/img/abecedario/x.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/xsena.png" alt="Image C">
+
     </div>
     <div class="image-pair">
       <div class="title">Letra Y</div>
       <img src="../assets/img/abecedario/y.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/ysena.png" alt="Image C">
+
+    </div>
     </div>
     <div class="image-pair">
       <div class="title">Letra Z</div>
       <img src="../assets/img/abecedario/z.png" alt="Image B">
-      <img src="../assets/img/abecedario/.png" alt="Image C">
+      <img src="../assets/img/abecedario/zsena.png" alt="Image C">
 
     </div>
 
@@ -325,7 +344,7 @@ try {
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>

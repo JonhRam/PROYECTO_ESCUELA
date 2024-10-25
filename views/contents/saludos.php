@@ -1,30 +1,32 @@
 <?php
 
 $host = 'localhost';       // O la dirección IP del servidor MySQL
-$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-$user = 'root';         // Reemplaza con tu usuario de MySQL
-$pass = '';      // Reemplaza con tu contraseña de MySQL
+$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
-
+$estu = $_SESSION['userName'];
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$accion = 'saludos';
+
+// importarnte agragar a los demas
+date_default_timezone_set('America/Guatemala');
 
 try {
   $pdo = new PDO($dsn, $user, $pass);
-
   $hoy = date('Y-m-d h:i:s');
 
-  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
-
-  $stmp = $pdo->prepare($sql);
-
-  $stmp->execute([
-    ':estudiante' => $_SESSION['userName'],
-    ':accion' => 'Entro a saludos',
-    ':created_at' => $hoy,
-  ]);
-
+  // Verificar si el usuario si ya tiene el registro
+  $hoy1 = date('Y-m-d');
+  $consulta_none = "SELECT * FROM registro WHERE estudiante = :estudiante AND accion = 'Entro a $accion' AND DATE(created_at) = :created_at";
+  $stmt = $pdo->prepare($consulta_none);
+  $stmt->bindParam(':estudiante', $estu, PDO::PARAM_INT);
+  $stmt->bindParam(':created_at', $hoy1, PDO::PARAM_STR);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Verificar si el formulario fue enviado
   if (isset($_POST['submit'])) {
@@ -36,21 +38,35 @@ try {
 
       $stmp->execute([
         ':estudiante' => $_SESSION['userName'],
-        ':accion' => 'finalizo en saludos',
+        ':accion' => "finalizo el $accion",
         ':created_at' => $hoy,
       ]);
 
       // Redirigir a otra página después del procesamiento exitoso
-      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      $http = "https://en-senas.com/dashboard";
       // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
       header("Location: $http");
       exit(); // Importante: detener la ejecución después de redirigir
 
     }
   }
+
+  if (count($resultados) > 0) {
+    header('Location: https://en-senas.com/dashboard');
+    exit();
+  }
+
+  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+  $stmp = $pdo->prepare($sql);
+  $stmp->execute([
+    ':estudiante' => $_SESSION['userName'],
+    ':accion' => "Entro a $accion",
+    ':created_at' => $hoy,
+  ]);
 } catch (\PDOException $e) {
   throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,45 +164,32 @@ try {
 <body>
   <div class="gallery-container">
     <div class="image-pair active">
-    <div class="title">manzana</div>
-     <img src="../assets/img/frutas/manzana.png" class="d-block w-100" alt="...">
-     <img src="../assets/img/frutas/.png"class="d-block w-100" alt="...">
+    <div class="title">Aplauso</div>
+     <img src="../assets/img/nombres/aplausena.png" class="d-block w-100" alt="...">
+     <img src="../assets/img/nombres/aplausena.png"class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
-    <div class="title">sandia</div>
-      <img src="../assets/img/frutas/sandia.png" alt="Image B">
-      <img src="../assets/img/frutas/" alt="Image C">
+    <div class="title">De nada</div>
+      <img src="../assets/img/nombres/denadasena.png" alt="Image B">
+      <img src="../assets/img/nombres/denadasena.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">bananano</div>
-      <img src="../assets/img/frutas/banano.png" alt="Image B">
-      <img src="../assets/img/frutas/" alt="Image C">
+    <div class="title">amor</div>
+      <img src="../assets/img/nombres/amor.png" alt="Image B">
+      <img src="../assets/img/nombres/amor.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">papaya</div>
-      <img src="../assets/img/frutas/papaya.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+    <div class="title">duda</div>
+      <img src="../assets/img/nombres/dudasena.png" alt="Image B">
+      <img src="../assets/img/nombres/dudasena.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">mango</div>
-      <img src="../assets/img/frutas/mango.png" alt="Image B">
-      <img src="../assets/img/colores/" alt="Image C">
+    <div class="title">gracias</div>
+      <img src="../assets/img/nombres/graciassena.png" alt="Image B">
+      <img src="../assets/img/nombres/graciassena.png" alt="Image C">
     </div>
-    <div class="image-pair">
-    <div class="title">f</div>
-      <img src="../assets/img/frutas/.png" alt="Image B">
-      <img src="../assets/img/frutas/" alt="Image C">
-    </div>
-    <div class="image-pair">
-    <div class="title">f</div>
-      <img src="../assets/img/frutas/.png" alt="Image B">
-      <img src="../assets/img/frutas/" alt="Image C">
-    </div>
-    <div class="image-pair">
-    <div class="title">f </div>
-      <img src="../assets/img/frutas/.png" alt="Image B">
-      <img src="../assets/img/frutas/" alt="Image C">
-    </div>
+    
+  
     <div class="image-pair">
       <div class="title">FELICIDADES LECCION COMPLETADA </div>
       <form action="" method="POST">
@@ -200,7 +203,7 @@ try {
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>

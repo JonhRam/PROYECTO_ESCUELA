@@ -3,9 +3,9 @@
 	$resultados = [];
 	try {
 		$host = 'localhost';       // O la dirección IP del servidor MySQL
-		$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-		$user = 'root';         // Reemplaza con tu usuario de MySQL
-		$pass = '';      // Reemplaza con tu contraseña de MySQL
+		$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+		$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+		$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 		$charset = 'utf8mb4';      // Codificación (opcional)
 		$estu = $_SESSION['userName'];
 		$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -115,15 +115,20 @@
 									<i class="zmdi zmdi-print"></i> Imprimir
 								</button>
 							</div>
+							
+
 							<table class="table table-hover" id="tablePrint">
+		
 								<thead>
 									<tr>
 										<th>Estudiante</th>
 										<th>Acci&oacute;n</th>
 										<th>Fecha y hora</th>
+										
+
 									</tr>
-								</thead>
-								<tbody>
+								</thead>								<tbody>
+									
 									<?php foreach ($resultados as $row) : ?>
 										<tr>
 											<td><?php echo $row['estudiante']; ?></td>

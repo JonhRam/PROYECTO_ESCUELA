@@ -1,30 +1,32 @@
 <?php
 
 $host = 'localhost';       // O la dirección IP del servidor MySQL
-$db = 'sistemawebescuela'; // Reemplaza con el nombre de tu base de datos
-$user = 'root';         // Reemplaza con tu usuario de MySQL
-$pass = '';      // Reemplaza con tu contraseña de MySQL
+$db = 'tuagewci_jonas'; // Reemplaza con el nombre de tu base de datos
+$user='tuagewci_jonas';         // Reemplaza con tu usuario de MySQL
+$pass = 'Jona2024.';      // Reemplaza con tu contraseña de MySQL
 $charset = 'utf8mb4';      // Codificación (opcional)
 
 session_start();
-
+$estu = $_SESSION['userName'];
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$accion = 'verduras';
+
+// importarnte agragar a los demas
+date_default_timezone_set('America/Guatemala');
 
 try {
   $pdo = new PDO($dsn, $user, $pass);
-
   $hoy = date('Y-m-d h:i:s');
 
-  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
-
-  $stmp = $pdo->prepare($sql);
-
-  $stmp->execute([
-    ':estudiante' => $_SESSION['userName'],
-    ':accion' => 'Entro a leccion verduras',
-    ':created_at' => $hoy,
-  ]);
-
+  // Verificar si el usuario si ya tiene el registro
+  $hoy1 = date('Y-m-d');
+  $consulta_none = "SELECT * FROM registro WHERE estudiante = :estudiante AND accion = 'Entro a $accion' AND DATE(created_at) = :created_at";
+  $stmt = $pdo->prepare($consulta_none);
+  $stmt->bindParam(':estudiante', $estu, PDO::PARAM_INT);
+  $stmt->bindParam(':created_at', $hoy1, PDO::PARAM_STR);
+  $stmt->execute();
+  $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Verificar si el formulario fue enviado
   if (isset($_POST['submit'])) {
@@ -36,21 +38,35 @@ try {
 
       $stmp->execute([
         ':estudiante' => $_SESSION['userName'],
-        ':accion' => 'finalizo leccion verduras',
+        ':accion' => "finalizo el $accion",
         ':created_at' => $hoy,
       ]);
 
       // Redirigir a otra página después del procesamiento exitoso
-      $http = "http://localhost/PROYECTO_ESCUELA/dashboard";
+      $http = "https://en-senas.com/dashboard";
       // http://localhost/PROYECTO_ESCUELA/views/contents/letras.php
       header("Location: $http");
       exit(); // Importante: detener la ejecución después de redirigir
 
     }
   }
+
+  if (count($resultados) > 0) {
+    header('Location: https://en-senas.com/dashboard');
+    exit();
+  }
+
+  $sql = "INSERT INTO registro (estudiante, accion, created_at) VALUES (:estudiante, :accion, :created_at)";
+  $stmp = $pdo->prepare($sql);
+  $stmp->execute([
+    ':estudiante' => $_SESSION['userName'],
+    ':accion' => "Entro a $accion",
+    ':created_at' => $hoy,
+  ]);
 } catch (\PDOException $e) {
   throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -150,44 +166,85 @@ try {
   <div class="gallery-container">
     <div class="image-pair active">
     <div class="title">tomate</div>
-     <img src="../assets/img/verduras/tomate.png" class="d-block w-100" alt="...">
-     <img src="../assets/img/verduras/.png"class="d-block w-100" alt="...">
+     <img src="../assets/img/verduras/tomatesena.png" class="d-block w-100" alt="...">
+     <img src="../assets/img/verduras/tomate.png"class="d-block w-100" alt="...">
     </div>
     <div class="image-pair">
-    <div class="title">cebolla</div>
-      <img src="../assets/img/verduras/cebolla.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
+    <div class="title">Ajo</div>
+      <img src="../assets/img/verduras/ajo.png" alt="Image B">
+      <img src="../assets/img/verduras/ajoo.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">pepino</div>
+    <div class="title">arbeja</div>
+      <img src="../assets/img/verduras/arbejassena.png" alt="Image B">
+      <img src="../assets/img/verduras/arbeja.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">camote</div>
+      <img src="../assets/img/verduras/camotesena.png" alt="Image B">
+      <img src="../assets/img/verduras/camote.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">coliflor</div>
+      <img src="../assets/img/verduras/coliflor.png" alt="Image B">
+      <img src="../assets/img/verduras/coliflorsena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">ejote</div>
+      <img src="../assets/img/verduras/ejote.png" alt="Image B">
+      <img src="../assets/img/verduras/ejotessena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">elote</div>
+      <img src="../assets/img/verduras/elote.png" alt="Image B">
+      <img src="../assets/img/verduras/elotesena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title"> Apio</div>
+      <img src="../assets/img/verduras/apio.png" alt="Image B">
+      <img src="../assets/img/verduras/apiosenaa.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">Guicoy </div>
+      <img src="../assets/img/verduras/guicoy.png" alt="Image B">
+      <img src="../assets/img/verduras/guicoysenaa.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">Guisquil </div>
+      <img src="../assets/img/verduras/guisquil.png" alt="Image B">
+      <img src="../assets/img/verduras/guisquilsena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">Navos</div>
+      <img src="../assets/img/verduras/navossena.png" alt="Image B">
+      <img src="../assets/img/verduras/navossenaa.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">Papas </div>
+      <img src="../assets/img/verduras/papas.png" alt="Image B">
+      <img src="../assets/img/verduras/papasena.png" alt="Image C">
+    </div>
+    <div class="image-pair">
+    <div class="title">Pepinos </div>
       <img src="../assets/img/verduras/pepino.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
+      <img src="../assets/img/verduras/pepinosena.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">rabano</div>
+    <div class="title">Rabanos </div>
       <img src="../assets/img/verduras/rabano.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
+      <img src="../assets/img/verduras/rabanos.senapng.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">limon</div>
-      <img src="../assets/img/verduras/limon.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
+    <div class="title">Yuca </div>
+      <img src="../assets/img/verduras/yuca.png" alt="Image B">
+      <img src="../assets/img/verduras/yucasenaa.png" alt="Image C">
     </div>
     <div class="image-pair">
-    <div class="title">lechuga</div>
-      <img src="../assets/img/verduras/lechuga.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
+    <div class="title">zanahoria </div>
+      <img src="../assets/img/verduras/zanahoria.png" alt="Image B">
+      <img src="../assets/img/verduras/zanahoriasena.png" alt="Image C">
     </div>
-    <div class="image-pair">
-    <div class="title">f</div>
-      <img src="../assets/img/verduras/.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
-    </div>
-    <div class="image-pair">
-    <div class="title">f </div>
-      <img src="../assets/img//.png" alt="Image B">
-      <img src="../assets/img/verduras/" alt="Image C">
-    </div>
+    
     <div class="image-pair">
       <div class="title">FELICIDADES LECCION COMPLETADA </div>
       <form action="" method="POST">
@@ -201,7 +258,7 @@ try {
   <div class="buttons">
     <button onclick="showPrev()">Anterior</button>
     <button onclick="showNext()">Siguiente</button>
-    <button class="btn btn-regresar" onclick="window.location.href='http://localhost/PROYECTO_ESCUELA/dashboard/'">Regresar al menú principal</button>
+    <button class="btn btn-regresar" onclick="window.location.href='https://en-senas.com/dashboard/'">Regresar al menú principal</button>
 
 
   </div>
